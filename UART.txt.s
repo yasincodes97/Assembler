@@ -1,5 +1,5 @@
 
-#MACRO SECTION
+## MACRO SECTION
 .equ	UART0, 0x860
 .equ	UART1, 0x880
 
@@ -9,32 +9,32 @@
 	.data
 
 CHAR:	.ascii "_"
-TEXT:	.ascii "Hallo World"	#Null symbol bzw. 0000 0000 ist in jeden leeren/unverwendete byte vorhanden
+TEXT:	.ascii "Hallo World"				#null symbol / 0000 0000
 	.byte 	0
 	
 
-### TEXT SECTION #######################################
-	.end #end vom var
+## TEXT SECTION
+	.end #end of var
 	.global main		
-	.text #anfang vom code
+	.text #begin of code
 main:	
 
 	
 	
 	call	sendString0				#KEY3 wird ausgelsesen um festzustellen ob resettet werden soll
 
-	#movia r4, CHAR
-	#ldb r4, (r4)
-	#call	sendChar0	
+							#movia r4, CHAR
+							#ldb r4, (r4)
+							#call	sendChar0	
 	
 	
-	br endLoop					#springt am ende des programms
+	br endLoop					#springt an ende des programms
 	
 	
 sendChar0:	
 
-	#movia r10,CHAR
-	#ldb r9, (r10)	
+							#movia r10,CHAR
+							#ldb r9, (r10)	
 	
 	
 	mov r8, r4
@@ -59,7 +59,7 @@ BACK_Char:
 sendString0:
 	
 	movia r10,TEXT
-	#movia r10,0
+							#movia r10,0
 BACK:
 
 	movi r8, 8
@@ -85,8 +85,8 @@ endLoop:
 
 	br endLoop
 	
-	#wirte_LED nicht in main methode damit nur aktualisiert wird sobald eine taste gedr?ckt wurde
-	.end #ende vom code
+							#wirte_LED nicht in main methode damit nur aktualisiert wird sobald eine taste gedrueckt wurde
+	.end 						#end of code
 	
 	
 
